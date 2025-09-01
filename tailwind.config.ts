@@ -18,7 +18,15 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'heading': ['Comic Neue', 'cursive'],
+				'body': ['Poppins', 'sans-serif'],
+			},
 			colors: {
+				'pop-orange': 'hsl(25 95% 65%)',
+				'pop-pink': 'hsl(340 85% 70%)',
+				'pop-yellow': 'hsl(45 100% 70%)',
+				'pop-cyan': 'hsl(180 85% 65%)',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -63,6 +71,16 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			backgroundImage: {
+				'gradient-pop': 'linear-gradient(135deg, hsl(25 95% 65%), hsl(340 85% 70%))',
+				'gradient-cyan-yellow': 'linear-gradient(135deg, hsl(180 85% 65%), hsl(45 100% 70%))',
+			},
+			animation: {
+				'jump': 'jump 0.3s ease-in-out',
+				'bounce-in': 'bounce-in 0.6s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'spin-dots': 'spin-dots 1s linear infinite',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -84,11 +102,24 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'jump': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-8px)' }
+				},
+				'bounce-in': {
+					'0%': { transform: 'scale(0.3) rotate(-10deg)', opacity: '0' },
+					'50%': { transform: 'scale(1.05) rotate(2deg)' },
+					'100%': { transform: 'scale(1) rotate(0deg)', opacity: '1' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+					'50%': { transform: 'translateY(-10px) rotate(1deg)' }
+				},
+				'spin-dots': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
-			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},
